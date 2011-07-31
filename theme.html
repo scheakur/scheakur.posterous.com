@@ -1,0 +1,251 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>{Title}</title>
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      a {
+        text-decoration: none;
+        color: #66696e;
+      }
+      body {
+        font-size: 16px;
+        color: #262626;
+      }
+      #posterous_header {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        width: 100%;
+        height: 47px;
+        padding-top: 5px;
+        padding-right: 5px;
+      }
+      #scheakur {
+        margin-top: 47px;
+      }
+      .header {
+        text-align: center;
+        padding-bottom: 10px;
+      }
+      .description {
+        font-size: smaller;
+      }
+      .postheader > *,
+      .postbody > *,
+      .postfooter > *,
+      .nav > * ,
+      .postbody > div.CodeRay > div.code,
+      .postbody > div.gist > .gist-file > .gist-data > .gist-highlight,
+      .postbody > div.gist > .gist-file > .gist-meta {
+        width: 95%;
+        max-width: 960px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .postbody > div.CodeRay,
+      .postbody > div.gist {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        border: none;
+        margin-top: 19px;
+        margin-bottom: 19px;
+        box-shadow: 0 0 19px #959595;
+      }
+      .postbody > div.gist > .gist-file {
+        background-color: #eaeaea;
+        border: none;
+      }
+      .postbody > ul, .postbody > ol {
+        padding-left: 60px;
+      }
+      .postbody > ul ul, .postbody > ol ol,
+      .postbody > ul ol, .postbody > ol ul {
+        padding-left: 23px;
+      }
+      .postunit {
+        margin-bottom: 61px;
+        padding-top: 29px;
+      }
+      .posttime {
+        float: left;
+        font-size: smaller;
+      }
+      .posttags {
+        font-size: smaller;
+      }
+      .posttags li {
+        float: left;
+        margin-top: 0;
+        margin-left: 5px;
+        list-style: none;
+      }
+      .editbox {
+        float: left;
+        font-size: smaller;
+        margin-left: 10px;
+      }
+      ul.mini_commands {
+        /* overwrite */
+        margin-top: 0;
+      }
+      .posttitle {
+        clear: both;
+        position: relative; /* for fav star */
+        padding-top: 7px;
+      }
+      .posttitle a {
+        color: #90ad39;
+      }
+      .favanchor {
+        /* for fav star */
+        position: absolute;
+        left: -5px;
+      }
+      .postbody {
+        padding: 10px 0;
+      }
+      .postfooter {
+        padding: 4px 0;
+      }
+      .comments {
+        font-size: smaller;
+      }
+      div.fav_star span {
+        display: none !important;
+      }
+      div.fav_star {
+        border: none !important;
+      }
+      .nav-footer {
+        padding-top: 11px;
+        padding-bottom: 22px;
+        background-color: #434343;
+        color: #dedede;
+        box-shadow: 0 0 33px #434343;
+      }
+      .nav-footer a {
+        color: #ffbb00;
+      }
+      div.list-tags li {
+        list-style: none;
+      }
+      body {
+        background: white url("data:image/jpeg;base64,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");
+      }
+    </style>
+  </head>
+  <body>
+    <aside><div id="posterous_header">
+      <nav><div>{PosterousBar}</div></nav>
+    </div></aside>
+    <div id="scheakur">
+    <header>
+      <div class="header">
+        <h1><a href="{SiteURL}">
+        {block:HeaderImage}
+          <img src="{HeaderImageURL}" alt="{Title} - {Description}"/>
+        {Else}
+          {Title}
+        {/block:HeaderImage}
+        </a></h1>
+        <div class="description">
+          {Description}
+        </div>
+      </div>
+    </header>
+    <div class="posts">
+      {block:Posts}
+      <article>
+        <div id="post_{PostID}" class="postunit">
+          <header><div class="postheader">
+            <div class="header-meta">
+              <div class="posttime">
+                <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}:{Seconds}" pubdate="pubdate">
+                  <a href="{Permalink}">{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24HourWithZero}:{Minutes}</a>
+                </time>
+              </div>
+              {block:TagList}
+              <ul class="posttags">
+                {block:TagListing}
+                <li>[<a href="{TagLink}" rel="tag">{TagName}</a>]</li>
+                {/block:TagListing}
+              </ul>
+              {/block:TagList}
+              <div class="editbox">
+                {block:EditBox}
+                  {EditBoxContents}
+                {/block:EditBox}
+              </div>
+            </div>
+            <h2 class="posttitle"><span class="favanchor" id="favanchor_{PostID}"></span><a href="{Permalink}">{Title}</a></h2>
+          </div></header>
+          <div class="postbody">{Body}</div>
+          <footer><div class="postfooter">
+            {block:ShowOrList}
+            {block:Comments}
+            <section>
+              <div class="comments">
+                {block:CommentsList action_id="comment_link_{PostID}" target_element="post_commentarea_{PostID}"}
+                <span class="caption"><a href="{Permalink}#comment" id="comment_link_{PostID}">Comments</a> [{CommentCount}]</span>
+                <div id="post_commentarea_{PostID}" class="comment_area"></div>
+                {/block:CommentsList}
+                {block:CommentsShow}
+                <a name="comment"></a>
+                <section>
+                  <div class="comments_list">
+                    <span class="caption">Comments ({CommentCount})</span>
+                    {CommentCode}
+                  </div>
+                </section>
+                <section>
+                  <div class="comment_create">
+                    <span class="caption">Leave a comment...</span>
+                    {NewCommentCode}
+                  </div>
+                </section>
+                {/block:CommentsShow}
+              </div>
+            </section>
+            {/block:Comments}
+            {block:Favorite hover_id="post_{PostID}" position_id="favanchor_{PostID}"/}
+            {/block:ShowOrList}
+          </div></footer>
+        </div>
+      </article>
+      {/block:Posts}
+    </div>
+    <nav><div class="nav">
+      {block:Pagination/}
+    </div></nav>
+    <nav><div class="nav nav-footer">
+    {block:TagList}
+      <div class="list-tags">
+      <h5>Tags</h5>
+      <ul>
+        {block:TagListing collapsible='true' count='10' action_id='seemore_link'}
+          {block:TagListingMore}
+            <li><a href="#" id='seemore_link'>View all {NumTags} tags »</a></li>
+          {/block:TagListingMore}
+          {block:TagItem}
+            <li><a href="{TagLink}">{TagName}</a> <span class="instances">({TagCount})</span></li>
+          {/block:TagItem}
+          {block:TagItemSelected}
+            <li>{TagName} <span class="instances">({TagCount})</span></li>
+          {/block:TagItemSelected}
+        {/block:TagListing}
+      </ul>
+      </div>
+    {/block:TagList}
+    </div></nav>
+  </div>
+  </body>
+</html>
