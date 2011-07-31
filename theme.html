@@ -9,6 +9,7 @@
       * {
         margin: 0;
         padding: 0;
+        line-height: 140%;
       }
       a {
         text-decoration: none;
@@ -64,6 +65,15 @@
         background-color: #eaeaea;
         border: none;
       }
+      .postbody {
+        margin-top: 18px;
+      }
+      .postbody > :first-child {
+        margin-top: 0px !important;
+      }
+      .postbody > p {
+        margin-top: 0.8em;
+      }
       .postbody > ul, .postbody > ol {
         padding-left: 60px;
       }
@@ -99,22 +109,47 @@
       }
       .posttitle {
         clear: both;
-        position: relative; /* for fav star */
         padding-top: 7px;
+        font-size: 2.2em;
       }
       .posttitle a {
         color: #90ad39;
+        position: relative; /* for fav star */
       }
       .favanchor {
         /* for fav star */
         position: absolute;
-        left: -5px;
-      }
-      .postbody {
-        padding: 10px 0;
+        top: 0.4em;
+        right: -30px;
+        margin: 0;
       }
       .postfooter {
+        margin-top: 10px;
         padding: 4px 0;
+      }
+      .postbody h1 {
+        font-size: 2.0em;
+        margin-top: 19px;
+      }
+      .postbody h2 {
+        font-size: 1.8em;
+        margin-top: 19px;
+      }
+      .postbody h3 {
+        font-size: 1.6em;
+        margin-top: 19px;
+      }
+      .postbody h4 {
+        font-size: 1.4em;
+        margin-top: 17px;
+      }
+      .postbody h5 {
+        font-size: 1.2em;
+        margin-top: 15px;
+      }
+      .postbody > div.CodeRay {
+        font-size: 16px;
+        background-color: #373737;
       }
       .comments {
         font-size: smaller;
@@ -186,7 +221,7 @@
                 {/block:EditBox}
               </div>
             </div>
-            <h2 class="posttitle"><span class="favanchor" id="favanchor_{PostID}"></span><a href="{Permalink}">{Title}</a></h2>
+            <h2 class="posttitle"><a href="{Permalink}">{Title}<span class="favanchor" id="favanchor_{PostID}"></span></a></h2>
           </div></header>
           <div class="postbody">{Body}</div>
           <footer><div class="postfooter">
