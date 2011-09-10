@@ -97,7 +97,15 @@
         float: left;
         margin-top: 0;
         margin-left: 5px;
+        padding: 0 4px;
         list-style: none;
+        background-color: #b0cd79;
+      }
+      .posttags li:hover {
+        background-color: #d0ed99;
+      }
+      .posttags li a {
+        color: #26292e;
       }
       .editbox {
         float: left;
@@ -212,7 +220,7 @@
               {block:TagList}
               <ul class="posttags">
                 {block:TagListing}
-                <li>[<a href="{TagLink}" rel="tag">{TagName}</a>]</li>
+                <li><a href="{TagLink}" rel="tag">{TagName}</a></li>
                 {/block:TagListing}
               </ul>
               {/block:TagList}
