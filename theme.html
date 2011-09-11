@@ -39,6 +39,19 @@
         text-align: center;
         padding-bottom: 10px;
       }
+      .header h1 {
+        font-size: 128px;
+        font-weight: bold;
+        font-family: "Times New Roman", serif;
+        letter-spacing: -0.11em;
+      }
+      .header h1 a {
+        color: #878787;
+        text-shadow: #535353 2px 2px 2px;
+      }
+      .header h1 a:hover {
+        text-decoration: none;
+      }
       .description {
         font-size: smaller;
       }
@@ -209,7 +222,7 @@
       <div class="header">
         <h1><a href="{SiteURL}">
         {block:HeaderImage}
-          <img src="{HeaderImageURL}" alt="{Title} - {Description}"/>
+          <img src="{HeaderImageURL}" alt="{Title}"/>
         {Else}
           {Title}
         {/block:HeaderImage}
